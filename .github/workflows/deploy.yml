@@ -26,7 +26,7 @@ jobs:
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
           HF_USER: gulinkonstantin # Замените!
-          SPACE_NAME: iris-api-gulin       # Замените!
+          SPACE_NAME: iris_api_gulin       # Замените!
         run: |
           # Настраиваем Git
           git config --global user.email "bot@github.actions"
