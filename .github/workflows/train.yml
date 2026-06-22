@@ -14,15 +14,22 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Важно для сравнения с main
+          fetch-depth: 0
 
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
           cache: 'pip'
 
+      # ИСПРАВЛЕНИЕ 1: Установка системных зависимостей для canvas/CML
+      - name: Install system dependencies for CML
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev pixman-1-dev
+
+      # ИСПРАВЛЕНИЕ 2: Использование актуального экшна setup-cml
       - name: Setup CML
-        uses: iterative/setup-cml@v2
+        uses: iterative/setup-cml@v3
 
       - name: Установка зависимостей
         run: pip install -r requirements.txt
@@ -46,5 +53,4 @@ jobs:
           echo "### 📈 Изменения метрик:" >> report.md
           dvc metrics diff main --md >> report.md
           
-          # Отправка отчета в Pull Request
           cml comment create report.md
