@@ -21,13 +21,11 @@ jobs:
           python-version: '3.11'
           cache: 'pip'
 
-      # ИСПРАВЛЕНИЕ 1: Установка системных зависимостей для canvas/CML
       - name: Install system dependencies for CML
         run: |
           sudo apt-get update
           sudo apt-get install -y libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev pixman-1-dev
 
-      # ИСПРАВЛЕНИЕ 2: Использование актуального экшна setup-cml
       - name: Setup CML
         uses: iterative/setup-cml@v3
 
