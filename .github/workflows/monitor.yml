@@ -16,7 +16,7 @@ jobs:
     steps:
       - name: Check Health Endpoint
         run: |
-          curl --fail https://gulinkonstantin-iris_api_gulin.hf.space/health
+          curl --fail https://gulinkonstantin-iris-api-gulin.hf.space/health
 
       - name: Create Issue on Failure
         # Этот шаг выполняется ТОЛЬКО если curl выдаст ошибку (сервер лежит)
