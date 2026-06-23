@@ -15,7 +15,6 @@ jobs:
 
     steps:
       - name: Check Health Endpoint
-        # ЗАМЕНИТЕ URL на прямую ссылку вашего спейса!
         run: |
           curl --fail https://gulinkonstantin-iris_api_gulin.hf.space/health
 
